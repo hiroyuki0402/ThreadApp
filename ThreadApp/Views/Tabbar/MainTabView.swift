@@ -18,6 +18,7 @@ enum TabItems: Int {
 struct MainTabView: View {
     // MARK: - プロパティー
     @State var currentTab: TabItems = .home
+    @State private var showUploadSheet = false
 
     // MARK: - ボディー
     var body: some View {
@@ -37,6 +38,9 @@ struct MainTabView: View {
             /// プロフィール
             profileTabItem
         }//: TabView
+        .sheet(isPresented: $showUploadSheet) {
+            UploadView()
+        }
         .tint(Color.black)
 
     }//: ボディー
@@ -54,6 +58,7 @@ private extension MainTabView {
             .onChange(of: currentTab) {
                 currentTab = .home
             }
+
             .tag(TabItems.home.rawValue)
     }
 
@@ -71,12 +76,16 @@ private extension MainTabView {
 
     // MARK: - アップロード
     private var uploadTabItem: some View {
-        UploadView()
+        Rectangle()
             .tabItem {
                 Image(systemName:"plus" )
             }
+            .onAppear {
+                currentTab = .upload
+            }
             .onChange(of: currentTab) {
                 currentTab = .upload
+                showUploadSheet = currentTab == .upload
             }
             .tag(TabItems.upload.rawValue)
     }

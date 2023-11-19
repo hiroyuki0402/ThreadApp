@@ -14,26 +14,33 @@ struct ProfileView: View {
 
     // MARK: - ボディー
     var body: some View {
-        ScrollView(showsIndicators: false) {
-            VStack(spacing: 20) {
+        NavigationStack {
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: 20) {
 
-                /// ヘッダー
-                header
+                    /// ヘッダー
+                    header
 
-                /// フォロワーボタン
-                followerButton
+                    /// フォロワーボタン
+                    followerButton
 
-                VStack {
-                    /// タブ
-                    thredTabArea
+                    VStack {
+                        /// タブ
+                        thredTabArea
 
-                    /// スレッド
-                    thredListArea
+                        /// スレッド
+                        thredListArea
+                    }
+                    .padding(.vertical)
                 }
-                .padding(.vertical)
+            }//: ScrollView
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    navigationBarTrailingItem
+                }
             }
-        }
-        .padding(.horizontal)
+            .padding(.horizontal)
+        }//: NavigationStack
     }//: ボディー
 }
 // MARK: - ProfileViewアイテム
@@ -144,6 +151,17 @@ private extension ProfileView {
             }
         }
     }
+    
+    // MARK: - BarbuttonItem
+    /// 右側のアイテム
+    private var navigationBarTrailingItem: some View {
+        Button {
+            AuthService.shared.signout()
+        } label: {
+            Image(systemName: "line.3.horizontal")
+        }
+    }
+
 }
 
 #Preview {

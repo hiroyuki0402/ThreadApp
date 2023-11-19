@@ -9,11 +9,7 @@ import SwiftUI
 
 struct RegistrationView: View {
     // MARK: - プロパティー
-
-    @State private var email: String = ""
-    @State private var password: String = ""
-    @State private var fullName: String = ""
-    @State private var nickName: String = ""
+    @StateObject private var registraitionViewModel = RegistraitionViewModel()
 
     @Environment(\.dismiss) var dismis
 
@@ -57,17 +53,17 @@ private extension RegistrationView {
     /// 入力欄
     private var inputedArea: some View {
         VStack {
-            TextField("E-Mailを入力してください", text: $email)
+            TextField("E-Mailを入力してください", text: $registraitionViewModel.email)
                 .textInputAutocapitalization(.none)
                 .modifier(ThredFieldModifier())
 
-            SecureField("パスワードを入力してください", text: $password)
+            SecureField("パスワードを入力してください", text: $registraitionViewModel.password)
                 .modifier(ThredFieldModifier())
 
-            TextField("フルネームを入力してくだい", text: $fullName)
+            TextField("フルネームを入力してくだい", text: $registraitionViewModel.fullName)
                 .modifier(ThredFieldModifier())
 
-            TextField("ニックネームを入力してください", text: $nickName)
+            TextField("ニックネームを入力してください", text: $registraitionViewModel.nickName)
                 .modifier(ThredFieldModifier())
         }
     }
@@ -75,7 +71,9 @@ private extension RegistrationView {
     /// 登録
     private var createDone: some View {
         Button {
-
+            Task {
+                try await registraitionViewModel.createUser()
+            }
         } label: {
             Text("登録")
                 .font(.headline)
