@@ -9,8 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     // MARK: - プロパティー
-    @State private var email: String = ""
-    @State private var password: String = ""
+    @StateObject var loginViewModel = LoginViewModel()
 
     // MARK: - ボディー
 
@@ -60,11 +59,11 @@ private extension LoginView {
     /// 入力欄
     private var inputedAreaView: some View {
         VStack {
-            TextField("E-Mailを入力してください", text: $email)
+            TextField("E-Mailを入力してください", text: $loginViewModel.email)
                 .textInputAutocapitalization(.none)
                 .modifier(ThredFieldModifier())
 
-            SecureField("パスワードを入力してください", text: $password)
+            SecureField("パスワードを入力してください", text: $loginViewModel.password)
                 .modifier(ThredFieldModifier())
         }
     }
@@ -87,7 +86,9 @@ private extension LoginView {
     /// ログイン
     private var signinView: some View {
         Button {
-
+            Task {
+               try await loginViewModel.login()
+            }
         } label: {
             Text("ログイン")
                 .font(.headline)
