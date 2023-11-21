@@ -59,6 +59,8 @@
 		3B2B062E2B0A0690002F5322 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B062D2B0A0690002F5322 /* LoginViewModel.swift */; };
 		3B2B06312B0A1EA7002F5322 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B06302B0A1EA7002F5322 /* UserData.swift */; };
 		3B2B06332B0A223E002F5322 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B06322B0A223E002F5322 /* Logger.swift */; };
+		3B2B06352B0CC6E9002F5322 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B06342B0CC6E9002F5322 /* UserService.swift */; };
+		3B2B06372B0CC8FD002F5322 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B06362B0CC8FD002F5322 /* ProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +90,8 @@
 		3B2B062D2B0A0690002F5322 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		3B2B06302B0A1EA7002F5322 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		3B2B06322B0A223E002F5322 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		3B2B06342B0CC6E9002F5322 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		3B2B06362B0CC8FD002F5322 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -348,6 +352,7 @@
 				3B2B06262B09F641002F5322 /* RegistraitionViewModel.swift */,
 				3B2B062B2B09FFE6002F5322 /* ContentViewModel.swift */,
 				3B2B062D2B0A0690002F5322 /* LoginViewModel.swift */,
+				3B2B06362B0CC8FD002F5322 /* ProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -356,6 +361,7 @@
 			isa = PBXGroup;
 			children = (
 				3B2B06292B09F7F1002F5322 /* AuthService.swift */,
+				3B2B06342B0CC6E9002F5322 /* UserService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -477,7 +483,9 @@
 				3B2B05DB2B088F94002F5322 /* ThreadListViewItem.swift in Sources */,
 				3B2B062A2B09F7F1002F5322 /* AuthService.swift in Sources */,
 				3B2955862B07A9C1000ED10D /* HomeView.swift in Sources */,
+				3B2B06372B0CC8FD002F5322 /* ProfileViewModel.swift in Sources */,
 				3B2955802B07955C000ED10D /* ThredTextModifier.swift in Sources */,
+				3B2B06352B0CC6E9002F5322 /* UserService.swift in Sources */,
 				3B2955902B07AA85000ED10D /* UploadView.swift in Sources */,
 				3B2B06272B09F641002F5322 /* RegistraitionViewModel.swift in Sources */,
 				3B2B062E2B0A0690002F5322 /* LoginViewModel.swift in Sources */,
@@ -634,6 +642,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -663,6 +672,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

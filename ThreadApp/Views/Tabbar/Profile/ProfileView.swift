@@ -9,8 +9,14 @@ import SwiftUI
 
 struct ProfileView: View {
     // MARK: - プロパティー
+    @StateObject var profileViewModel = ProfileViewModel()
     @State private var selectedFilter: ProfileThredFilter = .threds
     @Namespace var animation
+
+    private var currentUser: UserData? {
+        guard let userData = profileViewModel.currentUser else { return nil }
+        return userData
+    }
 
     // MARK: - ボディー
     var body: some View {
@@ -61,23 +67,24 @@ private extension ProfileView {
         }
     }
 
-
     /// ユーザー情報
     private var userInfoArea: some View {
         VStack(alignment: .leading, spacing: 12) {
             VStack(alignment: .leading, spacing: 4) {
                 /// フルネーム
-                Text("ユーザー名")
+                Text(currentUser?.fullName ?? "")
                     .font(.title2)
                     .fontWeight(.semibold)
                 /// ニックネーム
-                Text("ニックネーム")
+                Text(currentUser?.userName ?? "")
                     .font(.subheadline)
 
             }
-            /// 小見出し
-            Text("ドライバー")
-                .font(.footnote)
+            /// 自己紹介
+            if let bio = currentUser?.bio {
+                Text(bio)
+                    .font(.footnote)
+            }
 
             /// フォロワー
             Text("フォロワー２人")

@@ -33,6 +33,7 @@ class AuthService {
         do {
             let result = try await Auth.auth().signIn(withEmail: email, password: password)
             userSection = result.user
+            try await UserService.shared.fetchCurrentUserData()
             Logger.showLog(result.user, greepWord: "Call Login API")
         } catch {
             Logger.showLog(error, greepWord: "Call Login API")
@@ -65,6 +66,7 @@ class AuthService {
         if let userData = userData {
             let encoderData = try Firestore.Encoder().encode(userData)
             try await Firestore.firestore().collection("users").document(userData.id).setData(encoderData)
+            UserService.shared.curentUser = userData
         }
     }
 
@@ -72,5 +74,6 @@ class AuthService {
     func signout() {
         try? Auth.auth().signOut()
         self.userSection = nil
+        UserService.shared.reset()
     }
 }
