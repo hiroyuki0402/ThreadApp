@@ -64,6 +64,7 @@ private extension RegistrationView {
                 .modifier(ThredFieldModifier())
 
             TextField("ニックネームを入力してください", text: $registraitionViewModel.nickName)
+                .textInputAutocapitalization(.none)
                 .modifier(ThredFieldModifier())
         }
     }
