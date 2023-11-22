@@ -105,7 +105,7 @@ private extension MainTabView {
 
     // MARK: - プロフィール
     private var profileTabItem: some View {
-        ProfileView()
+        CurrentUserPrifileView()
             .tabItem {
                 Image(systemName: currentTab == .profile ?  "person.fill": "person" )
                     .environment(\.symbolVariants, currentTab == .profile ? .fill: .none)

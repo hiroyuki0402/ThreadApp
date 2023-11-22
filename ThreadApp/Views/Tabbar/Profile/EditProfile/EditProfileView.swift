@@ -12,6 +12,7 @@ struct EditProfileView: View {
     @State private var bio: String = ""
     @State private var link: String = ""
     @State private var isPrivateProfile: Bool = false
+    @Environment(\.dismiss) var dissmis
 
     private let backGroundColor: Color = Color(.systemGroupedBackground)
     // MARK: - ボディー
@@ -113,7 +114,7 @@ private extension EditProfileView {
     /// 左側
     private var leadingBarItem: some View {
         Button("キャンセル") {
-
+            dissmis()
         }
         .font(.subheadline)
         .foregroundColor(.black)
