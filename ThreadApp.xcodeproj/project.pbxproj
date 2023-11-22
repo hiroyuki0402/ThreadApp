@@ -61,6 +61,10 @@
 		3B2B06332B0A223E002F5322 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B06322B0A223E002F5322 /* Logger.swift */; };
 		3B2B06352B0CC6E9002F5322 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B06342B0CC6E9002F5322 /* UserService.swift */; };
 		3B2B06372B0CC8FD002F5322 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B06362B0CC8FD002F5322 /* ProfileViewModel.swift */; };
+		3B2B06392B0E2EA7002F5322 /* ExprolerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B06382B0E2EA7002F5322 /* ExprolerModel.swift */; };
+		3B2B063C2B0E34CA002F5322 /* PreviewProvider-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B063B2B0E34CA002F5322 /* PreviewProvider-Extension.swift */; };
+		3B2B063E2B0E370E002F5322 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B063D2B0E370E002F5322 /* TestData.swift */; };
+		3B2B06402B0E3E8D002F5322 /* CurrentUserPrifileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B063F2B0E3E8D002F5322 /* CurrentUserPrifileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +96,10 @@
 		3B2B06322B0A223E002F5322 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		3B2B06342B0CC6E9002F5322 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		3B2B06362B0CC8FD002F5322 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		3B2B06382B0E2EA7002F5322 /* ExprolerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExprolerModel.swift; sourceTree = "<group>"; };
+		3B2B063B2B0E34CA002F5322 /* PreviewProvider-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreviewProvider-Extension.swift"; sourceTree = "<group>"; };
+		3B2B063D2B0E370E002F5322 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
+		3B2B063F2B0E3E8D002F5322 /* CurrentUserPrifileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserPrifileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +166,7 @@
 				3B2B06282B09F7DA002F5322 /* Service */,
 				3B2955702B0788CF000ED10D /* Utils */,
 				3B2B05E62B08B5C5002F5322 /* Supporting */,
+				3B2B063A2B0E34A8002F5322 /* Extension */,
 				3B2955682B078822000ED10D /* ThreadApp.xcdatamodeld */,
 				3B2955632B078822000ED10D /* Preview Content */,
 			);
@@ -177,6 +186,7 @@
 			children = (
 				3B29557E2B079529000ED10D /* ViewModifiers */,
 				3B2B06322B0A223E002F5322 /* Logger.swift */,
+				3B2B063D2B0E370E002F5322 /* TestData.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -275,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				3B29558D2B07AA7B000ED10D /* ProfileView.swift */,
+				3B2B063F2B0E3E8D002F5322 /* CurrentUserPrifileView.swift */,
 				3B2B05E92B08D93C002F5322 /* EditProfile */,
 			);
 			path = Profile;
@@ -353,6 +364,7 @@
 				3B2B062B2B09FFE6002F5322 /* ContentViewModel.swift */,
 				3B2B062D2B0A0690002F5322 /* LoginViewModel.swift */,
 				3B2B06362B0CC8FD002F5322 /* ProfileViewModel.swift */,
+				3B2B06382B0E2EA7002F5322 /* ExprolerModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -372,6 +384,14 @@
 				3B2B06302B0A1EA7002F5322 /* UserData.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		3B2B063A2B0E34A8002F5322 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3B2B063B2B0E34CA002F5322 /* PreviewProvider-Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -481,6 +501,7 @@
 				3B2B06332B0A223E002F5322 /* Logger.swift in Sources */,
 				3B2B05EB2B08D95C002F5322 /* EditProfileView.swift in Sources */,
 				3B2B05DB2B088F94002F5322 /* ThreadListViewItem.swift in Sources */,
+				3B2B06402B0E3E8D002F5322 /* CurrentUserPrifileView.swift in Sources */,
 				3B2B062A2B09F7F1002F5322 /* AuthService.swift in Sources */,
 				3B2955862B07A9C1000ED10D /* HomeView.swift in Sources */,
 				3B2B06372B0CC8FD002F5322 /* ProfileViewModel.swift in Sources */,
@@ -490,10 +511,13 @@
 				3B2B06272B09F641002F5322 /* RegistraitionViewModel.swift in Sources */,
 				3B2B062E2B0A0690002F5322 /* LoginViewModel.swift in Sources */,
 				3B2B06312B0A1EA7002F5322 /* UserData.swift in Sources */,
+				3B2B063C2B0E34CA002F5322 /* PreviewProvider-Extension.swift in Sources */,
 				3B2955832B079D38000ED10D /* MainTabView.swift in Sources */,
 				3B2955602B078820000ED10D /* ContentView.swift in Sources */,
 				3B29555E2B078820000ED10D /* ThreadAppApp.swift in Sources */,
 				3B2955922B07AA8E000ED10D /* SearchView.swift in Sources */,
+				3B2B063E2B0E370E002F5322 /* TestData.swift in Sources */,
+				3B2B06392B0E2EA7002F5322 /* ExprolerModel.swift in Sources */,
 				3B2B062C2B09FFE6002F5322 /* ContentViewModel.swift in Sources */,
 				3B29557D2B079053000ED10D /* RegistrationView.swift in Sources */,
 				3B29557A2B07898C000ED10D /* LoginView.swift in Sources */,

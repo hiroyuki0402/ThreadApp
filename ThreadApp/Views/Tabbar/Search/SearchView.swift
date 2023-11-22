@@ -10,21 +10,33 @@ import SwiftUI
 struct SearchView: View {
     // MARK: - プロパティー
     @State private var searchText: String = ""
+    @StateObject var exprolerViewModel = ExprolerModel()
 
     // MARK: - ボディー
     var body: some View {
         NavigationStack {
             ScrollView {
                 LazyVStack {
-                    ForEach(0...10, id: \.self) { item in
-                        SearchListItemView()
-                    }
+                    ForEach(exprolerViewModel.users) { item in
+                        NavigationLink(value: item) {
+                            VStack {
+                                SearchListItemView(userData: item)
+                            }
+                        }//: NavigationLink
+                    }//: ループ
                 }//: LazyVStack
             }//: ScrollView
+            .navigationDestination(for: UserData.self, destination: { user in
+                ProfileView(userData: user)
+            })
             .searchable(text: $searchText, prompt: "Search")
             .navigationTitle("Search")
         }//: NavigationStack
     }//: ボディー
+}
+
+private extension SearchView {
+
 }
 
 #Preview {

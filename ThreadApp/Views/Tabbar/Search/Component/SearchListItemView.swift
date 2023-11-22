@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct SearchListItemView: View {
+    // MARK: - プロパティー
+    var userData: UserData
+    // MARK: - ボディー
     var body: some View {
         /// セル
         cellItem
-    }
+    }//: body
 }
 
 private extension SearchListItemView {
@@ -22,7 +25,7 @@ private extension SearchListItemView {
                 /// アイコン
                 userIcon
 
-                VStack {
+                VStack(alignment: .leading, spacing: 4) {
                     /// ユーザーネーム
                     userName
                     /// メッセージ
@@ -40,7 +43,7 @@ private extension SearchListItemView {
     }
     /// 名前
     private var userName: some View {
-        Text("UserName")
+        Text(userData.fullName)
             .font(.footnote)
             .fontWeight(.semibold)
     }
@@ -52,7 +55,7 @@ private extension SearchListItemView {
 
     /// メッセージ
     private var mesage: some View {
-        Text("チャンピオン")
+        Text(userData.userName)
             .font(.footnote)
             .multilineTextAlignment(.leading)
     }
@@ -71,5 +74,5 @@ private extension SearchListItemView {
 }
 
 #Preview {
-    SearchListItemView()
+    SearchListItemView(userData: TestData.shared.userData)
 }

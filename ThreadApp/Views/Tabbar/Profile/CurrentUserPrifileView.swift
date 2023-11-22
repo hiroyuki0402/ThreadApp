@@ -1,85 +1,95 @@
 //
-//  ProfileView.swift
+//  CurrentPrifileView.swift
 //  ThreadApp
 //
-//  Created by SHIRAISHI HIROYUKI on 2023/11/17.
+//  Created by SHIRAISHI HIROYUKI on 2023/11/22.
 //
 
 import SwiftUI
 
-struct ProfileView: View {
+struct CurrentUserPrifileView: View {
     // MARK: - プロパティー
-    var userData: UserData
+    @StateObject var profileViewModel = ProfileViewModel()
     @State private var selectedFilter: ProfileThredFilter = .threds
     @Namespace var animation
+    @State var isShowEditView: Bool = false
 
+    private var currentUser: UserData? {
+        guard let userData = profileViewModel.currentUser else { return nil }
+        return userData
+    }
 
     // MARK: - ボディー
     var body: some View {
-        ScrollView(showsIndicators: false) {
-            VStack(spacing: 20) {
+        NavigationStack {
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: 20) {
 
-                /// ヘッダー
-                header
+                    /// ヘッダー
+                    header
 
-                /// フォロワーボタン
-                followerButton
+                    /// 編集等
+                    selfOperationButton
 
-                VStack {
-                    /// タブ
-                    thredTabArea
 
-                    /// スレッド
-                    thredListArea
+                    VStack {
+                        /// タブ
+                        thredTabArea
+
+                        /// スレッド
+                        thredListArea
+                    }
+                    .padding(.vertical)
                 }
-                .padding(.vertical)
+            }//: ScrollView
+            .sheet(isPresented: $isShowEditView, content: {
+                EditProfileView()
+            })
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    navigationBarTrailingItem
+                }
             }
-        }//: ScrollView
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                navigationBarTrailingItem
-            }
-        }
-        .padding(.horizontal)
-    }//: ボディー
+            .padding(.horizontal)
+        }//: NavigationStack
+    }
 }
-// MARK: - ProfileViewアイテム
 
-private extension ProfileView {
+private extension CurrentUserPrifileView {
     // MARK: - ヘッダー
-
+    
     /// ヘッダーアイテム
     private var header: some View {
         HStack(alignment: .top) {
             /// ユーザー情報
             userInfoArea
-
+            
             Spacer()
-
+            
             /// アイコン
             ProfileImageView(frameSize: 60)
         }
     }
-
+    
     /// ユーザー情報
     private var userInfoArea: some View {
         VStack(alignment: .leading, spacing: 12) {
             VStack(alignment: .leading, spacing: 4) {
                 /// フルネーム
-                Text(userData.fullName)
+                Text(currentUser?.fullName ?? "")
                     .font(.title2)
                     .fontWeight(.semibold)
                 /// ニックネーム
-                Text(userData.userName)
+                Text(currentUser?.userName ?? "")
                     .font(.subheadline)
-
+                
             }
             /// 自己紹介
-            if let bio = userData.bio {
+            if let bio = currentUser?.bio {
                 Text(bio)
                     .font(.footnote)
             }
-
+            
             /// フォロワー
             Text("フォロワー２人")
                 .font(.caption)
@@ -87,20 +97,40 @@ private extension ProfileView {
         }
     }
 
-    // MARK: - フォロワー
+    // MARK: - 編集
+    private var selfOperationButton: some View {
 
-    private var followerButton: some View {
-        Button {
+        HStack(alignment: .center, spacing: 4) {
+            Button {
+                isShowEditView.toggle()
+            } label: {
+                Text("プロフィールの編集")
+                    .frame(maxWidth: .infinity)
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.black)
+                    .frame(height: 32)
+                    .background(.white)
+                    .cornerRadius(8)
+                    .background(RoundedRectangle(cornerRadius: 8).stroke(.black))
+            }
 
-        } label: {
-            Text("follow")
-                .font(.subheadline)
-                .fontWeight(.semibold)
-                .foregroundColor(.white)
-                .frame(width: 352, height: 32)
-                .background(.black)
-                .cornerRadius(8)
+            Button {
+
+            } label: {
+                Text("プロフィールのシェア")
+                    .frame(maxWidth: .infinity)
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.black)
+                    .frame(height: 32)
+                    .background(.white)
+                    .cornerRadius(8)
+                    .background(RoundedRectangle(cornerRadius: 8).stroke(.black))
+            }
         }
+        .padding(.vertical, 4)
+        .padding(.horizontal, 4)
     }
 
     // MARK: Threadタブ
@@ -162,29 +192,8 @@ private extension ProfileView {
             Image(systemName: "line.3.horizontal")
         }
     }
-
 }
 
 #Preview {
-    ProfileView(userData: TestData.shared.userData)
-}
-
-// MARK: - スレッドタブアイテム
-
-enum ProfileThredFilter: Int, CaseIterable, Identifiable {
-    case threds
-    case replies
-
-    var id: Int {
-        return self.rawValue
-    }
-
-    var title: String {
-        switch self {
-        case .threds:
-            return "スレッド"
-        case .replies:
-            return "返信"
-        }
-    }
+    CurrentUserPrifileView()
 }
