@@ -9,16 +9,14 @@ import SwiftUI
 
 struct CurrentUserPrifileView: View {
     // MARK: - プロパティー
-    @StateObject var profileViewModel = ProfileViewModel()
+    @StateObject var profileViewModel = CurrentPrifileViewModel()
     @State private var selectedFilter: ProfileThredFilter = .threds
     @Namespace var animation
     @State var isShowEditView: Bool = false
 
     private var currentUser: UserData? {
-        guard let userData = profileViewModel.currentUser else { return nil }
-        return userData
+        return profileViewModel.createUser
     }
-
     // MARK: - ボディー
     var body: some View {
         NavigationStack {
@@ -43,7 +41,14 @@ struct CurrentUserPrifileView: View {
                 }
             }//: ScrollView
             .sheet(isPresented: $isShowEditView, content: {
-                EditProfileView()
+                if let currentUser = currentUser  {
+                    EditProfileView(userData: currentUser)
+                } else {
+                    // TODO: - currentUserが取れなかった時の処理
+                    
+                    ///テストデータ
+                    EditProfileView(userData: TestData.shared.userData)
+                }
             })
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -67,7 +72,7 @@ private extension CurrentUserPrifileView {
             Spacer()
             
             /// アイコン
-            ProfileImageView(frameSize: 60)
+            ProfileImageView(userdata: currentUser ,frameSize: 60)
         }
     }
     
@@ -76,16 +81,16 @@ private extension CurrentUserPrifileView {
         VStack(alignment: .leading, spacing: 12) {
             VStack(alignment: .leading, spacing: 4) {
                 /// フルネーム
-                Text(currentUser?.fullName ?? "")
+                Text(profileViewModel.createUser?.fullName ?? "")
                     .font(.title2)
                     .fontWeight(.semibold)
                 /// ニックネーム
-                Text(currentUser?.userName ?? "")
+                Text(profileViewModel.createUser?.userName ?? "")
                     .font(.subheadline)
                 
             }
             /// 自己紹介
-            if let bio = currentUser?.bio {
+            if let bio = profileViewModel.createUser?.bio {
                 Text(bio)
                     .font(.footnote)
             }
@@ -178,7 +183,7 @@ private extension CurrentUserPrifileView {
     private var thredListArea: some View {
         LazyVStack {
             ForEach(0 ... 10, id:\.self) { item in
-                ThreadListViewItem()
+               // ThreadListViewItem(threadData: <#ThredData#>)
             }
         }
     }

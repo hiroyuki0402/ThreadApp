@@ -50,7 +50,7 @@ private extension SearchListItemView {
 
     /// ユーザアイコン
     private var userIcon: some View {
-        ProfileImageView()
+        ProfileImageView(userdata: userData)
     }
 
     /// メッセージ

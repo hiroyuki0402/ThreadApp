@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct ThreadListViewItem: View {
+    // MARK: - プロパティー
+    var threadData: ThredData
+
+    // MARK: - ボディー
+
     var body: some View {
         VStack {
             HStack(alignment: .top, spacing: 12) {
@@ -24,11 +29,11 @@ struct ThreadListViewItem: View {
                     /// アクション
                     actionArea
                 }
-            }
+            }//: HStack
             Divider()
-        }
+        }//: VStack
         .padding()
-    }
+    }//: ボディー
 }
 
 // MARK: - ThredCellsアイテム
@@ -67,7 +72,7 @@ private extension ThreadListViewItem {
 
     /// 観覧件数
     private var viewing: some View {
-        Text("10")
+        Text("\(threadData.timeStamp)")
             .font(.caption)
             .foregroundColor(Color(.systemGray3))
     }
@@ -91,7 +96,7 @@ private extension ThreadListViewItem {
 
     /// メッセージ
     private var mesage: some View {
-        Text("テストテストテストテストテストテストテストテストテストテストテストテスト")
+        Text(threadData.caption)
             .font(.footnote)
             .multilineTextAlignment(.leading)
     }
@@ -152,5 +157,5 @@ private extension ThreadListViewItem {
 }
 
 #Preview {
-    ThreadListViewItem()
+    ThreadListViewItem(threadData: TestData.shared.threadData)
 }

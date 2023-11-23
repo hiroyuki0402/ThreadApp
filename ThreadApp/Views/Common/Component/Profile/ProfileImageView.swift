@@ -6,18 +6,28 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ProfileImageView: View {
     // MARK: - プロパティー
+    var userdata: UserData?
     var frameSize: CGFloat = 40
     
     // MARK: - ボディー
     var body: some View {
-        Image(.lewisHamilton)
-            .resizable()
-            .scaledToFit()
-            .frame(width: frameSize, height: frameSize)
-            .clipShape(Circle())
+        if let imageUrl = userdata?.profileImageUrl {
+            KFImage(URL(string: imageUrl))
+                .resizable()
+                .scaledToFill()
+                .frame(width: frameSize, height: frameSize)
+                .clipShape(Circle())
+        } else {
+            Image(systemName: "person.circle.fill")
+                .resizable()
+                .scaledToFill()
+                .frame(width: frameSize, height: frameSize)
+                .foregroundColor(Color(.systemGray4))
+        }
     }//: ボディー
 }
 

@@ -57,7 +57,7 @@ private extension ProfileView {
             Spacer()
 
             /// アイコン
-            ProfileImageView(frameSize: 60)
+            ProfileImageView(userdata: userData, frameSize: 60)
         }
     }
 
@@ -148,7 +148,7 @@ private extension ProfileView {
     private var thredListArea: some View {
         LazyVStack {
             ForEach(0 ... 10, id:\.self) { item in
-                ThreadListViewItem()
+              //  ThreadListViewItem()
             }
         }
     }
