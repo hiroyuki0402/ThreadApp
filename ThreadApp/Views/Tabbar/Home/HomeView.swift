@@ -9,13 +9,13 @@ import SwiftUI
 
 struct HomeView: View {
     // MARK: - プロパティー
-
+    @StateObject var homeViewmodel = HomeViewModel()
     // MARK: - ボディー
     var body: some View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
-                ForEach(0...10, id: \.self) { item in
-                    ThreadListViewItem()
+                ForEach( homeViewmodel.thredDats) { item in
+                    ThreadListViewItem(threadData: item)
                 }
             }//: ScrollView
             .refreshable {
@@ -39,9 +39,9 @@ private extension HomeView {
     // MARK: - セル
     /// セル
     private var cell: some View {
-        ForEach(0...10, id: \.self) { item in
+        ForEach(homeViewmodel.thredDats) { item in
             LazyVStack {
-                ThreadListViewItem()
+                ThreadListViewItem(threadData: item)
             }
         }
     }

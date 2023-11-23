@@ -6,13 +6,17 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct EditProfileView: View {
     // MARK: - プロパティー
+    var userData: UserData
     @State private var bio: String = ""
     @State private var link: String = ""
     @State private var isPrivateProfile: Bool = false
     @Environment(\.dismiss) var dissmis
+    @StateObject var editProfileViewModel = EditProfileViewModel()
+
 
     private let backGroundColor: Color = Color(.systemGroupedBackground)
     // MARK: - ボディー
@@ -78,11 +82,21 @@ private extension EditProfileView {
                 Text("名前")
                     .fontWeight(.semibold)
 
-                Text("ニックネーム")
+                Text(userData.fullName)
                     .fontWeight(.semibold)
             }
             Spacer()
-            ProfileImageView()
+            PhotosPicker(selection: $editProfileViewModel.seletedImage) {
+                if let image = editProfileViewModel.photoImage {
+                    image
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 40, height: 40)
+                        .clipShape(Circle())
+                } else {
+                    ProfileImageView(userdata: userData)
+                }
+            }
         }
     }
     /// 自己紹介
@@ -123,7 +137,10 @@ private extension EditProfileView {
     ///  右側
     private var trailingBarItem: some View {
         Button("完了") {
-
+            Task {
+                try await editProfileViewModel.updateUserData()
+                dissmis()
+            }
         }
         .font(.subheadline)
         .fontWeight(.semibold)
@@ -132,5 +149,5 @@ private extension EditProfileView {
 }
 
 #Preview {
-    EditProfileView()
+    EditProfileView(userData: TestData.shared.userData)
 }

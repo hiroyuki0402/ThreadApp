@@ -9,9 +9,13 @@ import SwiftUI
 
 struct UploadView: View {
     // MARK: - プロパティー
-    @State private var addThredText: String = ""
+    @StateObject var createThredViewModel = CreateThredViewModel()
     @Environment(\.dismiss) var dismiss
+    @State var caption: String = ""
 
+    private var userData: UserData? {
+        return UserService.shared.curentUser
+    }
     // MARK: - ボディー
     var body: some View {
         NavigationStack {
@@ -46,7 +50,7 @@ private extension UploadView {
     /// 入力欄表示
     private var inputedArea: some View {
         HStack(alignment: .top) {
-            ProfileImageView()
+            ProfileImageView(userdata: userData)
 
             userInfoStartThred
 
@@ -59,8 +63,8 @@ private extension UploadView {
     ///  入力欄
     private var userInfoStartThred: some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text("UserName")
-            TextField("スレッドを開始...", text: $addThredText, axis: .vertical)
+            Text(userData?.userName ?? "")
+            TextField("スレッドを開始...", text: $caption, axis: .vertical)
         }
         .font(.footnote)
     }
@@ -68,9 +72,9 @@ private extension UploadView {
     /// 入力中の文字を削除
     private var removeThredText: some View {
         ZStack {
-            if !addThredText.isEmpty {
+            if caption.isEmpty {
                 Button {
-                    addThredText = ""
+                    caption = ""
                 } label: {
                     Image(systemName: "xmark")
                         .resizable()
@@ -94,9 +98,12 @@ private extension UploadView {
     ///  右側
     private var trailingBarItem: some View {
         Button("投稿") {
-
+            Task {
+                try await createThredViewModel.uploadThreads(caption: self.caption)
+                dismiss()
+            }
         }
-        .opacity(addThredText.isEmpty ? 0: 1)
+        .opacity(caption.isEmpty ? 0: 1)
         .font(.subheadline)
         .fontWeight(.semibold)
         .foregroundColor(.black)

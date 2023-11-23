@@ -61,10 +61,18 @@
 		3B2B06332B0A223E002F5322 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B06322B0A223E002F5322 /* Logger.swift */; };
 		3B2B06352B0CC6E9002F5322 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B06342B0CC6E9002F5322 /* UserService.swift */; };
 		3B2B06372B0CC8FD002F5322 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B06362B0CC8FD002F5322 /* ProfileViewModel.swift */; };
-		3B2B06392B0E2EA7002F5322 /* ExprolerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B06382B0E2EA7002F5322 /* ExprolerModel.swift */; };
+		3B2B06392B0E2EA7002F5322 /* ExprolerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B06382B0E2EA7002F5322 /* ExprolerViewModel.swift */; };
 		3B2B063C2B0E34CA002F5322 /* PreviewProvider-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B063B2B0E34CA002F5322 /* PreviewProvider-Extension.swift */; };
 		3B2B063E2B0E370E002F5322 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B063D2B0E370E002F5322 /* TestData.swift */; };
 		3B2B06402B0E3E8D002F5322 /* CurrentUserPrifileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B063F2B0E3E8D002F5322 /* CurrentUserPrifileView.swift */; };
+		3B2B06432B0F1DCA002F5322 /* CurrentPrifileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B06422B0F1DCA002F5322 /* CurrentPrifileViewModel.swift */; };
+		3B2B06452B0F2883002F5322 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B06442B0F2883002F5322 /* EditProfileViewModel.swift */; };
+		3B2B06472B0F2DCF002F5322 /* ImageUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B06462B0F2DCF002F5322 /* ImageUploadService.swift */; };
+		3B67A2CE2B0F406900F80555 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3B67A2CD2B0F406900F80555 /* Kingfisher */; };
+		3B67A2D02B0F565B00F80555 /* ThredData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B67A2CF2B0F565B00F80555 /* ThredData.swift */; };
+		3B67A2D22B0F576F00F80555 /* CreateThredViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B67A2D12B0F576F00F80555 /* CreateThredViewModel.swift */; };
+		3B67A2D42B0F57A100F80555 /* ThredService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B67A2D32B0F57A100F80555 /* ThredService.swift */; };
+		3B67A2D62B0F63DE00F80555 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B67A2D52B0F63DE00F80555 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,10 +104,17 @@
 		3B2B06322B0A223E002F5322 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		3B2B06342B0CC6E9002F5322 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		3B2B06362B0CC8FD002F5322 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
-		3B2B06382B0E2EA7002F5322 /* ExprolerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExprolerModel.swift; sourceTree = "<group>"; };
+		3B2B06382B0E2EA7002F5322 /* ExprolerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExprolerViewModel.swift; sourceTree = "<group>"; };
 		3B2B063B2B0E34CA002F5322 /* PreviewProvider-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreviewProvider-Extension.swift"; sourceTree = "<group>"; };
 		3B2B063D2B0E370E002F5322 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		3B2B063F2B0E3E8D002F5322 /* CurrentUserPrifileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserPrifileView.swift; sourceTree = "<group>"; };
+		3B2B06422B0F1DCA002F5322 /* CurrentPrifileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentPrifileViewModel.swift; sourceTree = "<group>"; };
+		3B2B06442B0F2883002F5322 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
+		3B2B06462B0F2DCF002F5322 /* ImageUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadService.swift; sourceTree = "<group>"; };
+		3B67A2CF2B0F565B00F80555 /* ThredData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThredData.swift; sourceTree = "<group>"; };
+		3B67A2D12B0F576F00F80555 /* CreateThredViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateThredViewModel.swift; sourceTree = "<group>"; };
+		3B67A2D32B0F57A100F80555 /* ThredService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThredService.swift; sourceTree = "<group>"; };
+		3B67A2D52B0F63DE00F80555 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +138,7 @@
 				3B2B06102B09F27C002F5322 /* FirebaseInAppMessaging-Beta in Frameworks */,
 				3B2B06022B09F27C002F5322 /* FirebaseDatabaseSwift in Frameworks */,
 				3B2B060C2B09F27C002F5322 /* FirebaseFunctions in Frameworks */,
+				3B67A2CE2B0F406900F80555 /* Kingfisher in Frameworks */,
 				3B2B06222B09F27C002F5322 /* FirebaseStorageCombine-Community in Frameworks */,
 				3B2B061C2B09F27C002F5322 /* FirebaseRemoteConfig in Frameworks */,
 				3B2B05F82B09F27C002F5322 /* FirebaseAppDistribution-Beta in Frameworks */,
@@ -361,10 +377,14 @@
 			isa = PBXGroup;
 			children = (
 				3B2B06262B09F641002F5322 /* RegistraitionViewModel.swift */,
+				3B2B06442B0F2883002F5322 /* EditProfileViewModel.swift */,
 				3B2B062B2B09FFE6002F5322 /* ContentViewModel.swift */,
 				3B2B062D2B0A0690002F5322 /* LoginViewModel.swift */,
 				3B2B06362B0CC8FD002F5322 /* ProfileViewModel.swift */,
-				3B2B06382B0E2EA7002F5322 /* ExprolerModel.swift */,
+				3B2B06382B0E2EA7002F5322 /* ExprolerViewModel.swift */,
+				3B2B06422B0F1DCA002F5322 /* CurrentPrifileViewModel.swift */,
+				3B67A2D12B0F576F00F80555 /* CreateThredViewModel.swift */,
+				3B67A2D52B0F63DE00F80555 /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -374,6 +394,8 @@
 			children = (
 				3B2B06292B09F7F1002F5322 /* AuthService.swift */,
 				3B2B06342B0CC6E9002F5322 /* UserService.swift */,
+				3B2B06462B0F2DCF002F5322 /* ImageUploadService.swift */,
+				3B67A2D32B0F57A100F80555 /* ThredService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -382,6 +404,7 @@
 			isa = PBXGroup;
 			children = (
 				3B2B06302B0A1EA7002F5322 /* UserData.swift */,
+				3B67A2CF2B0F565B00F80555 /* ThredData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -438,6 +461,7 @@
 				3B2B061D2B09F27C002F5322 /* FirebaseRemoteConfigSwift */,
 				3B2B061F2B09F27C002F5322 /* FirebaseStorage */,
 				3B2B06212B09F27C002F5322 /* FirebaseStorageCombine-Community */,
+				3B67A2CD2B0F406900F80555 /* Kingfisher */,
 			);
 			productName = ThreadApp;
 			productReference = 3B29555A2B078820000ED10D /* ThreadApp.app */;
@@ -469,6 +493,7 @@
 			mainGroup = 3B2955512B078820000ED10D;
 			packageReferences = (
 				3B2B05EC2B09F27C002F5322 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				3B67A2CC2B0F406900F80555 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 3B29555B2B078820000ED10D /* Products */;
 			projectDirPath = "";
@@ -498,6 +523,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B29558A2B07AA34000ED10D /* ActivityView.swift in Sources */,
+				3B2B06472B0F2DCF002F5322 /* ImageUploadService.swift in Sources */,
 				3B2B06332B0A223E002F5322 /* Logger.swift in Sources */,
 				3B2B05EB2B08D95C002F5322 /* EditProfileView.swift in Sources */,
 				3B2B05DB2B088F94002F5322 /* ThreadListViewItem.swift in Sources */,
@@ -509,18 +535,24 @@
 				3B2B06352B0CC6E9002F5322 /* UserService.swift in Sources */,
 				3B2955902B07AA85000ED10D /* UploadView.swift in Sources */,
 				3B2B06272B09F641002F5322 /* RegistraitionViewModel.swift in Sources */,
+				3B2B06452B0F2883002F5322 /* EditProfileViewModel.swift in Sources */,
 				3B2B062E2B0A0690002F5322 /* LoginViewModel.swift in Sources */,
 				3B2B06312B0A1EA7002F5322 /* UserData.swift in Sources */,
 				3B2B063C2B0E34CA002F5322 /* PreviewProvider-Extension.swift in Sources */,
 				3B2955832B079D38000ED10D /* MainTabView.swift in Sources */,
+				3B2B06432B0F1DCA002F5322 /* CurrentPrifileViewModel.swift in Sources */,
 				3B2955602B078820000ED10D /* ContentView.swift in Sources */,
+				3B67A2D42B0F57A100F80555 /* ThredService.swift in Sources */,
 				3B29555E2B078820000ED10D /* ThreadAppApp.swift in Sources */,
+				3B67A2D22B0F576F00F80555 /* CreateThredViewModel.swift in Sources */,
+				3B67A2D62B0F63DE00F80555 /* HomeViewModel.swift in Sources */,
 				3B2955922B07AA8E000ED10D /* SearchView.swift in Sources */,
 				3B2B063E2B0E370E002F5322 /* TestData.swift in Sources */,
-				3B2B06392B0E2EA7002F5322 /* ExprolerModel.swift in Sources */,
+				3B2B06392B0E2EA7002F5322 /* ExprolerViewModel.swift in Sources */,
 				3B2B062C2B09FFE6002F5322 /* ContentViewModel.swift in Sources */,
 				3B29557D2B079053000ED10D /* RegistrationView.swift in Sources */,
 				3B29557A2B07898C000ED10D /* LoginView.swift in Sources */,
+				3B67A2D02B0F565B00F80555 /* ThredData.swift in Sources */,
 				3B2B05DF2B08B3E6002F5322 /* ProfileImageView.swift in Sources */,
 				3B29558E2B07AA7B000ED10D /* ProfileView.swift in Sources */,
 				3B29556A2B078822000ED10D /* ThreadApp.xcdatamodeld in Sources */,
@@ -742,6 +774,14 @@
 				minimumVersion = 10.18.0;
 			};
 		};
+		3B67A2CC2B0F406900F80555 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.10.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -879,6 +919,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3B2B05EC2B09F27C002F5322 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		3B67A2CD2B0F406900F80555 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B67A2CC2B0F406900F80555 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 

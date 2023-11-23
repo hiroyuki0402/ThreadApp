@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ExprolerModel: ObservableObject {
+class ExprolerViewModel: ObservableObject {
     @Published var users: UserDatas = []
 
     init() {

@@ -10,7 +10,7 @@ import SwiftUI
 struct SearchView: View {
     // MARK: - プロパティー
     @State private var searchText: String = ""
-    @StateObject var exprolerViewModel = ExprolerModel()
+    @StateObject var exprolerViewModel = ExprolerViewModel()
 
     // MARK: - ボディー
     var body: some View {
